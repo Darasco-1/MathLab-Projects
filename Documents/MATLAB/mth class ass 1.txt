@@ -1,0 +1,20 @@
+>> syms x y z a b c
+>> f = x/(x.^2 + y.^2 + z.^2)
+ 
+f =
+ 
+x/(x^2 + y^2 + z^2)
+ 
+>> diff(f,x)
+ 
+ans =
+ 
+1/(x^2 + y^2 + z^2) - (2*x^2)/(x^2 + y^2 + z^2)^2
+ 
+>> simplify(diff(f,x))
+ 
+ans =
+ 
+(- x^2 + y^2 + z^2)/(x^2 + y^2 + z^2)^2
+ 
+>> 

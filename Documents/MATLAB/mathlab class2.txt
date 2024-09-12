@@ -1,0 +1,221 @@
+>> syms a b c x y z
+>> f1(x)=x.^2 + 3*x + 1
+ 
+f1(x) =
+ 
+x^2 + 3*x + 1
+ 
+>> f(3)
+Undefined function or variable 'f'.
+ 
+>> f1(3)
+ 
+ans =
+ 
+19
+ 
+>> fplot(f1)
+>> fplot(f1),[-1,3]
+
+ans =
+
+    -1     3
+
+>> fplot(f1),[-1,3])
+ fplot(f1),[-1,3])
+                 ↑
+Error: Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+ 
+>> fplot(f1,[-1,3])
+>> f2(x,y)=x.^2 + y.^2
+ 
+f2(x, y) =
+ 
+x^2 + y^2
+ 
+>> fimplicit(f2(x,y),[-1,3])
+>> fimplicit(f2,[-1,3])
+>> fimplicit(f2)
+>> f2(x, y)= x.^2 + y.^2
+ 
+f2(x, y) =
+ 
+x^2 + y^2
+ 
+>> fimplicit(f2)
+>> f2(x, y)= x.^2 + y.^2 + 0
+ 
+f2(x, y) =
+ 
+x^2 + y^2
+ 
+>> fimplicit(f2)
+>> fimplicit(f2,3)
+Error using fimplicit (line 111)
+Invalid parameter '3'.
+ 
+>> f2(x, y)= x.^2 + y.^2 - 1
+ 
+f2(x, y) =
+ 
+x^2 + y^2 - 1
+ 
+>> fimplicit(f2)
+>> fsurf(f2)
+>> f3(x,y,z)= x.^2 + y.^2 - 1
+ 
+f3(x, y, z) =
+ 
+x^2 + y^2 - 1
+ 
+>> fimplicit3 (f3)
+>> f3(x,y,z)= x.^2 + y.^2 - 1
+ 
+f3(x, y, z) =
+ 
+x^2 + y^2 - 1
+ 
+>> f4(x,y,z)= x.^2 + y.^2 - z
+ 
+f4(x, y, z) =
+ 
+x^2 + y^2 - z
+ 
+>> fimplicit3 (f4)
+>> % to plot a three dimensional surface we either define implicitly the function as f(x,y,z) or use f(3)=x^2 + y^2 and then use fsurf
+>> %when given equation in form of parameters we define r(radius) and @ from 0 to 2pi
+>> syms t
+>> r=5
+
+r =
+
+     5
+
+>> x=r*cos(t)
+ 
+x =
+ 
+5*cos(t)
+ 
+>> y=r*sin(t)
+ 
+y =
+ 
+5*sin(t)
+ 
+>> fplot(x,y ,[0 , 2*pi])
+>> syms s x y z
+>> fsurf(x y z)
+ fsurf(x y z)
+         ↑
+Error: Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or other syntax
+error. To construct matrices, use brackets instead of parentheses.
+
+Its supposed to be fsurf(x,y,z)
+ 
+>> z = s
+ 
+z =
+ 
+s
+ 
+>> fsurf(x y z)
+ fsurf(x y z)
+         ↑
+Error: Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or other syntax
+error. To construct matrices, use brackets instead of parentheses.
+ 
+>> fsurf(x, y, z)
+Error using matlab.graphics.function.ParameterizedFunctionSurface/updateFunctionHandles
+Input must be a function or functions of two variables.
+
+Error in matlab.graphics.function.ParameterizedFunctionSurface/set.ZFunction
+
+Error in matlab.graphics.function.ParameterizedFunctionSurface
+
+Error in fsurf>singleFsurf (line 263)
+      hObj = matlab.graphics.function.ParameterizedFunctionSurface(fn,extraOpts{:},args{:});
+
+Error in fsurf>@(f1,f2,f3)singleFsurf(cax,{f1,f2,f3},extraOpts,args) (line 236)
+        hObj = cellfun(@(f1,f2,f3) singleFsurf(cax,{f1,f2,f3},extraOpts,args),fn{:},'UniformOutput',false);
+
+Error in fsurf>vectorizeFsurf (line 236)
+        hObj = cellfun(@(f1,f2,f3) singleFsurf(cax,{f1,f2,f3},extraOpts,args),fn{:},'UniformOutput',false);
+
+Error in fsurf (line 200)
+    hObj = vectorizeFsurf(cax,fn,extraOpts,args);
+ 
+>> syms u v
+>> x = 5*sin(u)*cos(v)
+ 
+x =
+ 
+5*cos(v)*sin(u)
+ 
+>> y = 5*sin(u)*sin(v)
+ 
+y =
+ 
+5*sin(u)*sin(v)
+ 
+>> z = 5*cos(u)
+ 
+z =
+ 
+5*cos(u)
+ 
+>> fsurf(x, y, z)
+>> f5(x) = piecewise(x<0, 2*x, x>0, x.^2)
+Error using sym/subsindex (line 814)
+Invalid indexing or function definition. Indexing must follow MATLAB indexing. Function arguments must be symbolic
+variables, and function body must be sym expression.
+
+Error in sym/privsubsasgn (line 1085)
+                L_tilde2 = builtin('subsasgn',L_tilde,struct('type','()','subs',{varargin}),R_tilde);
+
+Error in sym/subsasgn (line 922)
+            C = privsubsasgn(L,R,inds{:});
+ 
+>> f5(x) = piecewise(x<0,2*x,x>0,x^2)
+Error using sym/subsindex (line 814)
+Invalid indexing or function definition. Indexing must follow MATLAB indexing. Function arguments must be symbolic
+variables, and function body must be sym expression.
+
+Error in sym/privsubsasgn (line 1085)
+                L_tilde2 = builtin('subsasgn',L_tilde,struct('type','()','subs',{varargin}),R_tilde);
+
+Error in sym/subsasgn (line 922)
+            C = privsubsasgn(L,R,inds{:});
+ 
+>> piecewise(x<0,2*x,x>0,x^2)
+ 
+ans =
+ 
+piecewise(cos(v)*sin(u) < 0, 10*cos(v)*sin(u), 0 < cos(v)*sin(u), 25*cos(v)^2*sin(u)^2)
+ 
+>> fplot(
+ fplot(
+       ↑
+Error: Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for
+mismatched delimiters.
+ 
+Did you mean:
+>> syms x y z a b c r s w
+>> f5(x) = piecewise(x<0,2*x,x>0,x^2)
+ 
+f5(x) =
+ 
+piecewise(x < 0, 2*x, 0 < x, x^2)
+ 
+>> fplot(f5)
+>> limits(f5(x),x,0)
+Undefined function 'limits' for input arguments of type 'sym'.
+ 
+>> limit(f5(x),x,0)
+ 
+ans =
+ 
+0
+ 
+>> 

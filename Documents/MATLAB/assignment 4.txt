@@ -1,0 +1,64 @@
+>> A = [2 9 4 12 5 8 6; 12 2 8 7 3 3 7; 3 0 3 5 7 5 10; 3 11 6 6 9 9 1; 11 2 1 4 6 8 7; 5 -18 1 -9 11 -1 18; 26 -27 -1 0 -15 -13 18]
+
+A =
+
+     2     9     4    12     5     8     6
+    12     2     8     7     3     3     7
+     3     0     3     5     7     5    10
+     3    11     6     6     9     9     1
+    11     2     1     4     6     8     7
+     5   -18     1    -9    11    -1    18
+    26   -27    -1     0   -15   -13    18
+
+>> B = [1 9; 5 12; 4 12; 10 9;0 5; 10 18; -20 2]
+
+B =
+
+     1     9
+     5    12
+     4    12
+    10     9
+     0     5
+    10    18
+   -20     2
+
+>> X = B*inv(A)
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.720743e-18. 
+Error using  * 
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the first matrix matches the number of
+rows in the second matrix. To perform elementwise multiplication, use '.*'.
+ 
+>> D = [A B]
+
+D =
+
+     2     9     4    12     5     8     6     1     9
+    12     2     8     7     3     3     7     5    12
+     3     0     3     5     7     5    10     4    12
+     3    11     6     6     9     9     1    10     9
+    11     2     1     4     6     8     7     0     5
+     5   -18     1    -9    11    -1    18    10    18
+    26   -27    -1     0   -15   -13    18   -20     2
+
+>> rref(D)
+
+ans =
+
+    1.0000         0         0         0         0    0.2534    0.0677   -0.2248   -0.2079
+         0    1.0000         0         0         0    0.3751   -1.0144    0.1478   -0.7937
+         0         0    1.0000         0         0   -0.5733   -0.1046    1.2852    1.1207
+         0         0         0    1.0000         0    0.2555    0.9718   -0.6651    0.6479
+         0         0         0         0    1.0000    0.6689    0.7503    0.5921    0.8603
+         0         0         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0         0         0
+
+>> syms a b c d e f g 
+
+The solutions to the set of equation above are; 
+a=-0.2079
+b=-0.7937
+c=1.1207
+d=0.6479
+e=0.8603
+f=0
+g=0

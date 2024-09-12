@@ -1,0 +1,56 @@
+>> syms a b c y
+>> syms a b g y
+>> a=[sin(a) cos(a) sin(a+g); sin(b) cos(b) sin(b+g); sin(y) cos(y) sin(y+g)]
+ 
+a =
+ 
+[ sin(a), cos(a), sin(a + g)]
+[ sin(b), cos(b), sin(b + g)]
+[ sin(y), cos(y), sin(g + y)]
+ 
+>> syms a b c x z y 
+>> b=[(a.^x + a.^-x)^2 (a.^x - a.^-x)^2 1; (b.^y + b.^-y)^2 (b.^y - b.^-y)^2 1; (c.^z + c.^-z)^2 (c.^z - c.^-z)^2 1]
+ 
+b =
+ 
+[ (a^x + 1/a^x)^2, (a^x - 1/a^x)^2, 1]
+[ (b^y + 1/b^y)^2, (b^y - 1/b^y)^2, 1]
+[ (c^z + 1/c^z)^2, (c^z - 1/c^z)^2, 1]
+ 
+>> syms a b c d e
+>> A=[a.^4 a.^3 a.^2 a 1; b.^4 b.^3 b.^2 b 1; c.^4 c.^3 c.^2 c 1; d.^4 d.^3 d.^2 d 1; e.^4 e.^3 e.^2 e 1]
+ 
+A =
+ 
+[ a^4, a^3, a^2, a, 1]
+[ b^4, b^3, b^2, b, 1]
+[ c^4, c^3, c^2, c, 1]
+[ d^4, d^3, d^2, d, 1]
+[ e^4, e^3, e^2, e, 1]
+ 
+>> %computing the determinant of a b A respectively
+>> det(a)
+ 
+ans =
+ 
+a
+ 
+>> det(b)
+ 
+ans =
+ 
+b
+ 
+>> det(A)
+ 
+ans =
+ 
+a^4*b^3*c^2*d - a^4*b^3*c^2*e - a^4*b^3*c*d^2 + a^4*b^3*c*e^2 + a^4*b^3*d^2*e - a^4*b^3*d*e^2 - a^4*b^2*c^3*d + a^4*b^2*c^3*e + a^4*b^2*c*d^3 - a^4*b^2*c*e^3 - a^4*b^2*d^3*e + a^4*b^2*d*e^3 + a^4*b*c^3*d^2 - a^4*b*c^3*e^2 - a^4*b*c^2*d^3 + a^4*b*c^2*e^3 + a^4*b*d^3*e^2 - a^4*b*d^2*e^3 - a^4*c^3*d^2*e + a^4*c^3*d*e^2 + a^4*c^2*d^3*e - a^4*c^2*d*e^3 - a^4*c*d^3*e^2 + a^4*c*d^2*e^3 - a^3*b^4*c^2*d + a^3*b^4*c^2*e + a^3*b^4*c*d^2 - a^3*b^4*c*e^2 - a^3*b^4*d^2*e + a^3*b^4*d*e^2 + a^3*b^2*c^4*d - a^3*b^2*c^4*e - a^3*b^2*c*d^4 + a^3*b^2*c*e^4 + a^3*b^2*d^4*e - a^3*b^2*d*e^4 - a^3*b*c^4*d^2 + a^3*b*c^4*e^2 + a^3*b*c^2*d^4 - a^3*b*c^2*e^4 - a^3*b*d^4*e^2 + a^3*b*d^2*e^4 + a^3*c^4*d^2*e - a^3*c^4*d*e^2 - a^3*c^2*d^4*e + a^3*c^2*d*e^4 + a^3*c*d^4*e^2 - a^3*c*d^2*e^4 + a^2*b^4*c^3*d - a^2*b^4*c^3*e - a^2*b^4*c*d^3 + a^2*b^4*c*e^3 + a^2*b^4*d^3*e - a^2*b^4*d*e^3 - a^2*b^3*c^4*d + a^2*b^3*c^4*e + a^2*b^3*c*d^4 - a^2*b^3*c*e^4 - a^2*b^3*d^4*e + a^2*b^3*d*e^4 + a^2*b*c^4*d^3 - a^2*b*c^4*e^3 - a^2*b*c^3*d^4 + a^2*b*c^3*e^4 + a^2*b*d^4*e^3 - a^2*b*d^3*e^4 - a^2*c^4*d^3*e + a^2*c^4*d*e^3 + a^2*c^3*d^4*e - a^2*c^3*d*e^4 - a^2*c*d^4*e^3 + a^2*c*d^3*e^4 - a*b^4*c^3*d^2 + a*b^4*c^3*e^2 + a*b^4*c^2*d^3 - a*b^4*c^2*e^3 - a*b^4*d^3*e^2 + a*b^4*d^2*e^3 + a*b^3*c^4*d^2 - a*b^3*c^4*e^2 - a*b^3*c^2*d^4 + a*b^3*c^2*e^4 + a*b^3*d^4*e^2 - a*b^3*d^2*e^4 - a*b^2*c^4*d^3 + a*b^2*c^4*e^3 + a*b^2*c^3*d^4 - a*b^2*c^3*e^4 - a*b^2*d^4*e^3 + a*b^2*d^3*e^4 + a*c^4*d^3*e^2 - a*c^4*d^2*e^3 - a*c^3*d^4*e^2 + a*c^3*d^2*e^4 + a*c^2*d^4*e^3 - a*c^2*d^3*e^4 + b^4*c^3*d^2*e - b^4*c^3*d*e^2 - b^4*c^2*d^3*e + b^4*c^2*d*e^3 + b^4*c*d^3*e^2 - b^4*c*d^2*e^3 - b^3*c^4*d^2*e + b^3*c^4*d*e^2 + b^3*c^2*d^4*e - b^3*c^2*d*e^4 - b^3*c*d^4*e^2 + b^3*c*d^2*e^4 + b^2*c^4*d^3*e - b^2*c^4*d*e^3 - b^2*c^3*d^4*e + b^2*c^3*d*e^4 + b^2*c*d^4*e^3 - b^2*c*d^3*e^4 - b*c^4*d^3*e^2 + b*c^4*d^2*e^3 + b*c^3*d^4*e^2 - b*c^3*d^2*e^4 - b*c^2*d^4*e^3 + b*c^2*d^3*e^4
+ 
+>> C=simplify(a^4*b^3*c^2*d - a^4*b^3*c^2*e - a^4*b^3*c*d^2 + a^4*b^3*c*e^2 + a^4*b^3*d^2*e - a^4*b^3*d*e^2 - a^4*b^2*c^3*d + a^4*b^2*c^3*e + a^4*b^2*c*d^3 - a^4*b^2*c*e^3 - a^4*b^2*d^3*e + a^4*b^2*d*e^3 + a^4*b*c^3*d^2 - a^4*b*c^3*e^2 - a^4*b*c^2*d^3 + a^4*b*c^2*e^3 + a^4*b*d^3*e^2 - a^4*b*d^2*e^3 - a^4*c^3*d^2*e + a^4*c^3*d*e^2 + a^4*c^2*d^3*e - a^4*c^2*d*e^3 - a^4*c*d^3*e^2 + a^4*c*d^2*e^3 - a^3*b^4*c^2*d + a^3*b^4*c^2*e + a^3*b^4*c*d^2 - a^3*b^4*c*e^2 - a^3*b^4*d^2*e + a^3*b^4*d*e^2 + a^3*b^2*c^4*d - a^3*b^2*c^4*e - a^3*b^2*c*d^4 + a^3*b^2*c*e^4 + a^3*b^2*d^4*e - a^3*b^2*d*e^4 - a^3*b*c^4*d^2 + a^3*b*c^4*e^2 + a^3*b*c^2*d^4 - a^3*b*c^2*e^4 - a^3*b*d^4*e^2 + a^3*b*d^2*e^4 + a^3*c^4*d^2*e - a^3*c^4*d*e^2 - a^3*c^2*d^4*e + a^3*c^2*d*e^4 + a^3*c*d^4*e^2 - a^3*c*d^2*e^4 + a^2*b^4*c^3*d - a^2*b^4*c^3*e - a^2*b^4*c*d^3 + a^2*b^4*c*e^3 + a^2*b^4*d^3*e - a^2*b^4*d*e^3 - a^2*b^3*c^4*d + a^2*b^3*c^4*e + a^2*b^3*c*d^4 - a^2*b^3*c*e^4 - a^2*b^3*d^4*e + a^2*b^3*d*e^4 + a^2*b*c^4*d^3 - a^2*b*c^4*e^3 - a^2*b*c^3*d^4 + a^2*b*c^3*e^4 + a^2*b*d^4*e^3 - a^2*b*d^3*e^4 - a^2*c^4*d^3*e + a^2*c^4*d*e^3 + a^2*c^3*d^4*e - a^2*c^3*d*e^4 - a^2*c*d^4*e^3 + a^2*c*d^3*e^4 - a*b^4*c^3*d^2 + a*b^4*c^3*e^2 + a*b^4*c^2*d^3 - a*b^4*c^2*e^3 - a*b^4*d^3*e^2 + a*b^4*d^2*e^3 + a*b^3*c^4*d^2 - a*b^3*c^4*e^2 - a*b^3*c^2*d^4 + a*b^3*c^2*e^4 + a*b^3*d^4*e^2 - a*b^3*d^2*e^4 - a*b^2*c^4*d^3 + a*b^2*c^4*e^3 + a*b^2*c^3*d^4 - a*b^2*c^3*e^4 - a*b^2*d^4*e^3 + a*b^2*d^3*e^4 + a*c^4*d^3*e^2 - a*c^4*d^2*e^3 - a*c^3*d^4*e^2 + a*c^3*d^2*e^4 + a*c^2*d^4*e^3 - a*c^2*d^3*e^4 + b^4*c^3*d^2*e - b^4*c^3*d*e^2 - b^4*c^2*d^3*e + b^4*c^2*d*e^3 + b^4*c*d^3*e^2 - b^4*c*d^2*e^3 - b^3*c^4*d^2*e + b^3*c^4*d*e^2 + b^3*c^2*d^4*e - b^3*c^2*d*e^4 - b^3*c*d^4*e^2 + b^3*c*d^2*e^4 + b^2*c^4*d^3*e - b^2*c^4*d*e^3 - b^2*c^3*d^4*e + b^2*c^3*d*e^4 + b^2*c*d^4*e^3 - b^2*c*d^3*e^4 - b*c^4*d^3*e^2 + b*c^4*d^2*e^3 + b*c^3*d^4*e^2 - b*c^3*d^2*e^4 - b*c^2*d^4*e^3 + b*c^2*d^3*e^4)
+ 
+Computing the simplification of the det(A)
+
+C =
+ 
+(a - b)*(a - c)*(a - d)*(b - c)*(a - e)*(b - d)*(b - e)*(c - d)*(c - e)*(d - e)

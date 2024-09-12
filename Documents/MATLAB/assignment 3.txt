@@ -1,0 +1,68 @@
+>> A = [ 16 2 3 13; 5 11 10 8; 9 7 6 12; 4 14 15 1 ]
+
+A =
+
+    16     2     3    13
+     5    11    10     8
+     9     7     6    12
+     4    14    15     1
+
+>> B = [ 1; 3; 4; 7]
+
+B =
+
+     1
+     3
+     4
+     7
+
+>> X = B*inv(A)
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.625929e-18. 
+Error using  * 
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the first matrix matches the number of
+rows in the second matrix. To perform elementwise multiplication, use '.*'.
+ 
+>> det(A)
+
+ans =
+
+   5.1337e-13
+
+>> % the linear equation does not have a solution coz the determinant is zero
+>> 
+>> syms x y z d 
+>> [x,y,z] = solve( 16*x + 2*y + 3*z + 13*d == 1, 5*x + 11*y + 10*z + 8*d == 3, 9*x + 7*y + 6*z + 12*d == 4, 4*x + 14*y + 15*z + d == 7 )
+ 
+x =
+ 
+Empty sym: 0-by-1
+ 
+ 
+y =
+ 
+Empty sym: 0-by-1
+ 
+ 
+z =
+ 
+Empty sym: 0-by-1
+ 
+>> D = [A B]
+
+D =
+
+    16     2     3    13     1
+     5    11    10     8     3
+     9     7     6    12     4
+     4    14    15     1     7
+
+>> rref(D)
+
+ans =
+
+     1     0     0     1     0
+     0     1     0     3     0
+     0     0     1    -3     0
+     0     0     0     0     1
+
+>> % all indications show that the set of equation has no solution

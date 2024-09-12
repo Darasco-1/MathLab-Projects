@@ -1,0 +1,17 @@
+>> syms n x
+>> f1 = n*(a*tan(1/(n*(x.^2+1)+x)))*tan((pi/4)+(x/2*n))
+Undefined function or variable 'a'.
+ 
+>> f1 = n*(atan(1/(n*(x.^2+1)+x)))*tan((pi/4)+(x/2*n))
+ 
+f1 =
+ 
+n*atan(1/(x + n*(x^2 + 1)))*tan(pi/4 + (n*x)/2)
+ 
+>> limit(f1,x,inf)
+ 
+ans =
+ 
+piecewise(n == 0, 0, n ~= 0, limit(n*atan(1/(x + n*(x^2 + 1)))*tan(pi/4 + (n*x)/2), x, Inf))
+ 
+>> 
